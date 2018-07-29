@@ -1,0 +1,53 @@
+<div id="profile-w" *ngIf="profile">
+    <div id="content" class="clearfix">
+        <div id="userphoto"><img class="img-circle" [src]="profile.picture? profile.picture :'assets/img/avatar.png'" alt="default avatar"></div>
+        <h1>Profile</h1>
+
+        <nav id="profiletabs">
+            <ul class="clearfix">
+
+                <li><a class="btn btn-primary" (click)="profileAction()">Activity</a></li>
+
+                <li><a class="btn btn-primary" (click)="profileAction()">Settings</a></li>
+            </ul>
+        </nav>
+
+
+        <section id="activity" *ngIf="!showActivity">
+            <p>Agenda:</p>
+
+            <p class="activity">@10:15PM - Submitted a news article</p>
+
+            <p class="activity">@9:50PM - Submitted a news article</p>
+
+            <p class="activity">@8:15PM - Posted a comment</p>
+
+            <p class="activity">@4:30PM - Added <strong>someusername</strong> as a friend</p>
+
+            <p class="activity">@12:30PM - Submitted a news article</p>
+        </section>
+
+
+
+        <section id="settings" *ngIf="showActivity">
+            <p>Settings:</p>
+
+            <p class="setting"><span>E-mail </span> {{profile.email}}</p>
+
+            <p class="setting"><span>Nombre </span> {{profile.name}}</p>
+
+            <p class="setting"><span>Profesión </span> Médico</p>
+
+            <p class="setting"><span>Especialidad</span> Pediatría</p>
+
+        </section>
+    </div>
+    <!-- @end #content -->
+</div>
+<!-- @end #w -->
+<br>
+<br>
+<pre>
+
+  {{ profile | json }}
+</pre>

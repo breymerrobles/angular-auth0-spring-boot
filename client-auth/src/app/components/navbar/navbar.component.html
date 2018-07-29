@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-drak bg-dark">
+
+    <a class="navbar-brand" [routerLink]="['home']">
+        <img src="assets/img/calendar-icon.svg" width="30" height="30" alt="" class="d-inline-block align-top"> Schedule App
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['home']">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']" *ngIf="auth.isAuthenticated()">
+                <a class="nav-link" [routerLink]="['profile']">Profile</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['about']">About US</a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+          <button (click)="login()"
+          *ngIf="!auth.isAuthenticated()"
+          type="button"
+           class="btn btn-primary btn-sm">Login</button>
+           <button 
+           *ngIf="auth.isAuthenticated()"
+           (click)="logout()"
+           type="button"
+            class="btn btn-primary btn-sm">Logout</button>
+         </span>
+    </div>
+</nav>
